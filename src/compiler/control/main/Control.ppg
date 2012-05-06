@@ -209,7 +209,7 @@ struct
   val traceFileLoad = ref false
   val tracePrelude = ref false
   val printSource = ref false
- 
+
   val printEL = ref false (* elabolation *)
   val printNE = ref false (* name evaluation *)
   val printMC = ref false (* module compile *)
@@ -292,15 +292,15 @@ struct
 
   val interactiveMode = ref false
 
-  (* 
-   * since SPECty is still alive after type inference in separate 
-   * and functor compilation, these switchs are used for error 
+  (*
+   * since SPECty is still alive after type inference in separate
+   * and functor compilation, these switchs are used for error
    * detection after type inference phase.
    *)
   val doCompileObj = ref false
   val doFunctorCompile = ref false
-  (* 
-   * used for error dectection for some special cases of type checking only 
+  (*
+   * used for error dectection for some special cases of type checking only
    * at linking time
    *)
   val doLinking = ref false
@@ -319,6 +319,8 @@ struct
   (* true if the compiler should skip the shebang line of the argument source
    * file. *)
   val skipShebang = ref true
+
+  val annot = ref false
 
   (****************************************)
 
@@ -428,7 +430,8 @@ struct
     ("VMHeapSize", IntSwitch VMHeapSize),
     ("VMStackSize", IntSwitch VMStackSize),
     ("withoutLink", BoolSwitch withoutLink),
-    ("insertCheckGC", BoolSwitch insertCheckGC)
+    ("insertCheckGC", BoolSwitch insertCheckGC),
+    ("annot", BoolSwitch annot)
           ]
 
   (****************************************)

@@ -28,9 +28,10 @@ struct
 
   fun outputExpr stream (e : tpexp) =
       case e of
-        TPAPPM {funTy, loc, funExp, ...} =>
+        TPAPPM {funTy, loc, funExp, argExpList, ...} =>
         (annot stream loc funTy;
-         outputExpr stream funExp)
+         outputExpr stream funExp;
+         List.app (outputExpr stream) argExpList)
       | TPCASEM {ruleBodyTy, loc, expList, ruleList, ...} =>
         (annot stream loc ruleBodyTy;
          List.app (outputExpr stream) expList;
