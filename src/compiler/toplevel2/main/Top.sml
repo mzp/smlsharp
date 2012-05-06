@@ -181,15 +181,15 @@ struct
                 title code
 
   fun printIDCalc title code =
-      printCode Control.printNE 
-                (if !Control.printWithType 
+      printCode Control.printNE
+                (if !Control.printWithType
                  then (Control.prettyPrint o IDCalc.formatWithType_icdecl)
                  else (Control.prettyPrint o IDCalc.format_icdecl)
                 )
                 title code
 
   fun printVR title code =
-      printCode Control.printVR 
+      printCode Control.printVR
                 (Control.prettyPrint o IDCalc.format_icdecl)
                 title code
 
@@ -336,7 +336,7 @@ struct
         val (topEnv, externDecls, printDecls) = PrinterGeneration.generate topEnv
         val _ = #stop Counter.printerGenerationTimeCounter()
         val tpdecs = externDecls @ tpdecs @ printDecls
-        val _ = printTypedCalc "Printer Generated" 
+        val _ = printTypedCalc "Printer Generated"
       in
         (topEnv, tpdecs)
       end
@@ -716,7 +716,7 @@ struct
 
   exception Return of interfaceNames * result
 
-  fun compile {stopAt,dstfile,baseName,stdPath,loadPath,asmFlags} 
+  fun compile {stopAt,dstfile,baseName,stdPath,loadPath,asmFlags}
               {topEnv, fixEnv, version, builtinDecls} input =
       let
         val _ = #start Counter.compilationTimeCounter()
@@ -735,7 +735,7 @@ struct
                 then raise Return (interfaceNames, STOPPED)
                 else ()
 
-        val (nameevalTopEnv, idcalc) = 
+        val (nameevalTopEnv, idcalc) =
             doNameEvaluation (topEnv, version, builtinDecls) plunit
             handle exn => raise exn
 
@@ -745,10 +745,17 @@ struct
                      then idcalc
                      else doFundeclElaboration idcalc
 
-        val (typeinfVarE, tpcalc) = 
+        val (typeinfVarE, tpcalc) =
             doTypeInference idcalc handle exn => raise exn
 
-        val nameevalTopEnv = 
+        val _ =
+            case baseName of
+              SOME x =>
+                Annot.dump (Filename.toString x) tpcalc
+            | NONE =>
+                ()
+
+        val nameevalTopEnv =
             if !Control.interactiveMode
             then NameEvalEnvUtils.mergeTypeEnv (nameevalTopEnv, typeinfVarE)
             else nameevalTopEnv
@@ -808,7 +815,7 @@ struct
                      else bacalc
 
         val _ = if !Control.checkType
-                then 
+                then
                   (
                    #start Counter.typeCheckBitmapANormalTimeCounter();
                    TypeCheckBitmapANormal.typecheck bacalc;
@@ -884,7 +891,7 @@ struct
         val sourceName = Filename.toString filename
         val _ = #start Counter.loadFileTimeCounter()
         val ({loadedFiles}, abunit) =
-            LoadFile.require 
+            LoadFile.require
               {stdPath=stdPath, loadPath=loadPath}
               sourceName
         val _ = #stop Counter.loadFileTimeCounter()
