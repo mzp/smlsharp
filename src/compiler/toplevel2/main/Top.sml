@@ -751,7 +751,7 @@ struct
         val _ =
             case baseName of
               SOME x =>
-                Annot.dump (Filename.toString x) tpcalc
+                Annot.dump (Filename.toString (Filename.replaceSuffix "annot" x)) tpcalc
             | NONE =>
                 ()
 
