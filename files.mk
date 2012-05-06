@@ -1062,6 +1062,7 @@ src/ffi/main/DynamicLink.o \
 src/compiler/main/main/SMLofNJ.o \
 src/compiler/main/main/GetOpt.o \
 src/compiler/toplevel2/main/Top.o \
+src/compiler/toplevel2/main/Annot.o \
 src/compiler/toplevel2/main/NameEvalEnvUtils.o \
 src/compiler/toplevel2/main/TopData.ppg.o \
 src/compiler/rtl/main/X86AsmGen.o \
@@ -1338,6 +1339,7 @@ src/ffi/main/DynamicLink.sml \
 src/compiler/main/main/SMLofNJ.sml \
 src/compiler/main/main/GetOpt.sml \
 src/compiler/toplevel2/main/Top.sml \
+src/compiler/toplevel2/main/Annot.sml \
 src/compiler/toplevel2/main/NameEvalEnvUtils.sml \
 src/compiler/toplevel2/main/TopData.ppg.sml \
 src/compiler/toplevel2/main/TOP.sig \
@@ -1693,6 +1695,7 @@ src/compiler/main/main/RunLoop.o \
 src/compiler/main/main/SMLofNJ.o \
 src/compiler/main/main/GetOpt.o \
 src/compiler/toplevel2/main/Top.o \
+src/compiler/toplevel2/main/Annot.o \
 src/compiler/toplevel2/main/NameEvalEnvUtils.o \
 src/compiler/toplevel2/main/TopData.ppg.o \
 src/compiler/rtl/main/X86AsmGen.o \
@@ -1970,6 +1973,7 @@ src/compiler/main/main/RunLoop.sml \
 src/compiler/main/main/SMLofNJ.sml \
 src/compiler/main/main/GetOpt.sml \
 src/compiler/toplevel2/main/Top.sml \
+src/compiler/toplevel2/main/Annot.sml \
 src/compiler/toplevel2/main/NameEvalEnvUtils.sml \
 src/compiler/toplevel2/main/TopData.ppg.sml \
 src/compiler/toplevel2/main/TOP.sig \
@@ -3193,6 +3197,8 @@ src/compiler/toolchain/main/Filename.o \
 src/compiler/toolchain/main/Filename.smi \
 src/compiler/toolchain/main/TempFile.o \
 src/compiler/toolchain/main/TempFile.smi \
+src/compiler/toplevel2/main/Annot.o \
+src/compiler/toplevel2/main/Annot.smi \
 src/compiler/toplevel2/main/NameEvalEnvUtils.o \
 src/compiler/toplevel2/main/NameEvalEnvUtils.smi \
 src/compiler/toplevel2/main/TOP.sig \
@@ -3585,6 +3591,7 @@ src/compiler/toolchain/main/BinUtils.o \
 src/compiler/toolchain/main/CoreUtils.o \
 src/compiler/toolchain/main/Filename.o \
 src/compiler/toolchain/main/TempFile.o \
+src/compiler/toplevel2/main/Annot.o \
 src/compiler/toplevel2/main/NameEvalEnvUtils.o \
 src/compiler/toplevel2/main/Top.o \
 src/compiler/toplevel2/main/TopData.ppg.o \
