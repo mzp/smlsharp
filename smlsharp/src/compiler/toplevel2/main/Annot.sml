@@ -172,7 +172,9 @@ struct
       let
           val stream = TextIO.openOut name
       in
+          output stream "(";
           List.app (outputDecl stream) decls;
+          output stream ")";
           TextIO.closeOut stream
       end
   end
